@@ -1,0 +1,154 @@
+/* ====== ESTILOS GENERALES ====== */
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background: linear-gradient(to top, #AEE1FF, transparent 60%);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== BARRA SUPERIOR ====== */
+.Barra_Superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea verticalmente todo */
+    
+    padding: 10px 40px; /* Ajusta altura equilibrada */
+}
+
+.Fitalia_Bar {
+    font-weight: 900;
+    font-size: 48px;
+    letter-spacing: 1px;
+    color: rgb(2, 1, 1);
+    margin: 0; /* Sin margen adicional */
+    
+}
+
+
+
+.Home_Bar {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 40px;
+}
+
+.Home_Bar:hover {
+    background-color: #333;
+}
+
+/* ====== CONTENEDOR FORMULARIO ====== */
+.Contenedor_Formulario {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== FORMULARIO ====== */
+.Formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 50px;
+    background: linear-gradient(
+        180deg,
+        rgba(217, 232, 255, 0.95) 0%,
+        rgba(174, 225, 255, 0.95) 100%
+    );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 70px 90px;
+    border-radius: 30px;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        0 8px 20px rgba(0, 0, 0, 0.15),
+        inset 0 -3px 8px rgba(255, 255, 255, 0.2); /* Sutil luz interior */
+    width: 75%;
+    max-width: 1000px;
+    min-height: 600px;
+    margin-bottom: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ====== CAMPOS DEL FORMULARIO ====== */
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 300;
+}
+
+input {
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+/* ====== BOTONES PRINCIPALES ====== */
+.botones {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.btn {
+    font-size: 15px;
+    padding: 14px 60px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    height: 45px;
+}
+
+.btn.azul {
+    background-color: #007BFF;
+    color: white;
+}
+
+.btn.azul:hover {
+    background-color: #0068da;
+}
+
+.btn.blanco {
+    background-color: white;
+    border: 1px solid #333;
+}
+
+.btn.blanco:hover {
+    background-color: #f2f2f2;
+}
+
+/* ====== BOTÓN GOOGLE ====== */
+.btn-google {
+    grid-column: span 2;
+    background-color: #1c1c1c;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-google:hover {
+    background-color: #000;
+}

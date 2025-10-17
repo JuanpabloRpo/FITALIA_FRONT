@@ -12,50 +12,36 @@ body {
 
 /* Barra superior */
 .Barra_Superior {
-  background: transparent;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 10px 30px;
-}
-
-.Fitalia_Ba {
-  background-color: transparent;
-  margin-left: 20px;
-  width: 150px;
-  height: 60px;
-  box-sizing: border-box;
-
-  /* centrado perfecto */
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea verticalmente todo */
+    
+    padding: 10px 40px; /* Ajusta altura equilibrada */
 }
 
 .Fitalia_Bar {
-  font-family: 'Inter', sans-serif;
-  font-size: 38px;
-  font-weight: black;
-  color: black;
-  background: transparent;
-  margin: 0; /* evita empujes del <h2> */
+    font-weight: 900;
+    font-size: 48px;
+    letter-spacing: 1px;
+    color: rgb(2, 1, 1);
+    margin: 0; /* Sin margen adicional */
+    
 }
 
-.Home_Ba {
-  background-color: transparent;
-  
-}
+
 
 .Home_Bar {
-  border-radius: 12px;
-  background: black;
-  color: white;
-  padding: 6px 14px;
-  font-weight: bold;
-  cursor: pointer;
-  height: 45px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 40px;
+}
+
+.Home_Bar:hover {
+    background-color: #333;
 }
 
 /* Sección central */
