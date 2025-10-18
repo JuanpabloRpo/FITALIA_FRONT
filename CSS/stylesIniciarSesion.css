@@ -57,7 +57,7 @@ body {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     gap: 25px 40px;
-     background: linear-gradient( 180deg,  rgba(217, 232, 255, 0.95) 0%, rgba(174, 225, 255, 0.95) 100%
+    background: linear-gradient( 180deg,  rgba(217, 232, 255, 0.95) 0%, rgba(174, 225, 255, 0.95) 100%
     );
     padding: 50px;
     border-radius: 25px;
@@ -70,7 +70,7 @@ body {
 
 /* ----------------- Lado Izquierdo (Formulario de Login) ----------------- */
 .Formulario_Izquierda {
-      display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     padding-right: 30px;
