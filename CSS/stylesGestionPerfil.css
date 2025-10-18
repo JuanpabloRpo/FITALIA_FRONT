@@ -1,0 +1,191 @@
+body {
+      min-height: 100vh; 
+    width: 100%; 
+    margin: 0;
+    background: linear-gradient(to bottom, #AEE1FF, transparent 20%),linear-gradient(to top, #AEE1FF, transparent 20%);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* Barra superior */
+.Barra_Superior {
+     width: 100%;
+    background-color: transparent;
+   
+    text-align: center;
+    padding: 10px 0;
+}
+
+.Fitalia_Bar {
+    
+     font-weight: 900;
+    font-size: 48px;
+    letter-spacing: 1px;
+    color: #020101;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Contenedor del perfil */
+.contenedor-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-perfil {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.icono-camara {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nombre-usuario {
+    margin-top: 35px;
+    font-size: 50px;
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Contenedor del formulario */
+.contenedor-formulario {
+    
+    padding: 25px 40px;
+    border-radius: 15px;
+    width: 600px;
+}
+
+.formulario .campo {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.formulario label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 800;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.icono {
+      position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translatex(350%);
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+    background-color: rgb(79, 91, 142);
+    border-radius: 100%;
+    height: 30px;
+    width: 20;
+}
+
+
+/* ---------- 📱 RESPONSIVE DESIGN ---------- */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 1024px) {
+    body {
+        background: linear-gradient(to top, #AEE1FF, white 70%);
+    }
+
+    .contenedor {
+        max-width: 80%;
+        margin-top: 30px;
+    }
+
+    .foto-perfil {
+        width: 150px;
+        height: 150px;
+    }
+
+    .nombre-usuario {
+        font-size: 1.6em;
+    }
+
+    input {
+        font-size: 0.95em;
+        padding: 9px 35px 9px 9px;
+    }
+
+    .icono {
+        font-size: 17px;
+        right: 8px;
+    }
+}
+
+/* Celulares (pantallas pequeñas) */
+@media (max-width: 600px) {
+    .barra-superior {
+        font-size: 1.3em;
+        padding: 8px 0;
+    }
+
+    .contenedor {
+        width: 95%;
+        margin-top: 25px;
+    }
+
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
+    }
+
+    .nombre-usuario {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    label {
+        font-size: 0.85em;
+    }
+
+    input {
+        font-size: 0.9em;
+        padding: 8px 33px 8px 8px;
+    }
+
+    .icono {
+        font-size: 16px;
+        right: 6px;
+    }
+
+    .campo {
+        margin-bottom: 15px;
+    }
+}
