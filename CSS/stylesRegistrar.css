@@ -1,21 +1,21 @@
 /* ====== ESTILOS GENERALES ====== */
 body {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh; 
+    width: 100%; 
     margin: 0;
     background: linear-gradient(to top, #AEE1FF, transparent 60%);
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; /* ✅ Previene desplazamientos laterales */
 }
 
 /* ====== BARRA SUPERIOR ====== */
 .Barra_Superior {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinea verticalmente todo */
-    
-    padding: 10px 40px; /* Ajusta altura equilibrada */
+    align-items: center;
+    padding: 10px 40px;
 }
 
 .Fitalia_Bar {
@@ -23,11 +23,8 @@ body {
     font-size: 48px;
     letter-spacing: 1px;
     color: rgb(2, 1, 1);
-    margin: 0; /* Sin margen adicional */
-    
+    margin: 0;
 }
-
-
 
 .Home_Bar {
     background-color: black;
@@ -49,6 +46,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px 0; /* ✅ Da margen vertical al crecer el zoom */
 }
 
 /* ====== FORMULARIO ====== */
@@ -68,7 +66,7 @@ body {
     box-shadow:
         0 4px 6px rgba(0, 0, 0, 0.1),
         0 8px 20px rgba(0, 0, 0, 0.15),
-        inset 0 -3px 8px rgba(255, 255, 255, 0.2); /* Sutil luz interior */
+        inset 0 -3px 8px rgba(255, 255, 255, 0.2);
     width: 75%;
     max-width: 1000px;
     min-height: 600px;
