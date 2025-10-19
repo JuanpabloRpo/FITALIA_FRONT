@@ -47,8 +47,8 @@ body {
 
 .foto-perfil {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
 }
 
 .foto-perfil img {
@@ -62,7 +62,7 @@ body {
     position: absolute;
     right: 10px;
     bottom: 5px;
-    font-size: 20px;
+    font-size: 35px;
     cursor: pointer;
 }
 
@@ -102,90 +102,99 @@ body {
 }
 
 .icono {
-      position: absolute;
+    position: absolute;
     right: 10px;
     top: 50%;
-    transform: translatex(350%);
-    font-size: 18px;
-    color: #555;
+    transform: translatex(400%);
+    font-size: 20px;
+    color: #000; /* Negro */
     cursor: pointer;
-    background-color: rgb(79, 91, 142);
-    border-radius: 100%;
-    height: 30px;
-    width: 20;
+    
 }
 
 
-/* ---------- 📱 RESPONSIVE DESIGN ---------- */
 
-/* Tablets (pantallas medianas) */
+
+/* Tablets */
 @media (max-width: 1024px) {
-    body {
-        background: linear-gradient(to top, #AEE1FF, white 70%);
+    .Fitalia_Bar {
+        font-size: 40px;
     }
 
     .contenedor {
-        max-width: 80%;
+        width: 90%;
         margin-top: 30px;
+        gap: 25px;
     }
 
     .foto-perfil {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
     }
 
     .nombre-usuario {
-        font-size: 1.6em;
+        font-size: 36px;
     }
 
-    input {
+    .contenedor-formulario {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .formulario input {
         font-size: 0.95em;
-        padding: 9px 35px 9px 9px;
+        padding: 10px 38px 10px 10px;
     }
 
     .icono {
-        font-size: 17px;
+        width: 26px;
+        height: 26px;
+        font-size: 13px;
         right: 8px;
     }
 }
 
-/* Celulares (pantallas pequeñas) */
+/* Celulares  */
 @media (max-width: 600px) {
-    .barra-superior {
-        font-size: 1.3em;
-        padding: 8px 0;
+    .Fitalia_Bar {
+        font-size: 32px;
     }
 
     .contenedor {
         width: 95%;
         margin-top: 25px;
+        gap: 20px;
     }
 
     .foto-perfil {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
     }
 
     .nombre-usuario {
-        font-size: 1.3em;
+        font-size: 1.4em;
         text-align: center;
+        margin-top: 25px;
     }
 
-    label {
-        font-size: 0.85em;
+    .contenedor-formulario {
+        width: 100%;
+        padding: 15px;
     }
 
-    input {
+    .formulario label {
         font-size: 0.9em;
-        padding: 8px 33px 8px 8px;
+    }
+
+    .formulario input {
+        font-size: 0.9em;
+        padding: 8px 35px 8px 10px;
     }
 
     .icono {
-        font-size: 16px;
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
         right: 6px;
-    }
-
-    .campo {
-        margin-bottom: 15px;
     }
 }
