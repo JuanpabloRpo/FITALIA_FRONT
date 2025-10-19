@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITALIA - Salud Física</title>
+  <!-- Actualizada ruta del CSS para estructura de carpetas del proyecto -->
+  <link rel="stylesheet" href="/CSS/stylesFisica.css">
+  <link rel="icon" href="ico.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ====== BARRA SUPERIOR ====== -->
+  <header class="Barra_Superior">
+    <h1 class="Fitalia_Bar">FITALIA</h1>
+    <nav class="Menu">
+      <button class="menu-btn principal">Salud Física</button>
+      <button class="menu-btn">Salud Mental</button>
+      <button class="menu-btn">Nutricional</button>
+      <button class="menu-btn">Home</button>
+    </nav>
+  </header>
+
+  <!-- ====== CONTENIDO PRINCIPAL ====== -->
+  <main class="Contenido">
+
+    <!-- ====== SECCIÓN SALUD FÍSICA ====== -->
+    <section class="seccion-salud-fisica">
+      <div class="info-recomendaciones">
+        <div>
+            <h2 class="titulo-principal">SALUD FÍSICA</h2>
+        </div>
+        <div class="recomendaciones">
+          <h3>Recomendaciones de ejercicio</h3>
+          <ul class="lista-recomendaciones">
+            <li>- Caminar 30 min al día</li>
+            <li>- 10 min de estiramiento matutino</li>
+            <li>- Yoga para principiantes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="imagen-destacada">
+        <img src="/ASSERTS/SaludFisica/persona-saltando.png" alt="Persona haciendo ejercicio">
+      </div>
+    </section>
+
+   <!-- ====== SECCIÓN REGISTRO DE ACTIVIDAD ====== -->
+    <section class="seccion-registro">
+      <h2 class="titulo-registro">Registrar actividad física</h2>
+      
+      <div class="contenedor-registro-simple">
+        <div class="campos-horizontales">
+          <div class="campo-formulario">
+            <select class="select-campo">
+              <option>Tipo de actividad</option>
+              <option>Caminata</option>
+              <option>Estiramiento</option>
+              <option>Yoga</option>
+              <option>Trotar</option>
+            </select>
+          </div>
+          
+          <div class="campo-formulario">
+            <select class="select-campo">
+              <option>Duración (min)</option>
+              <option>15 min</option>
+              <option>30 min</option>
+              <option>45 min</option>
+              <option>60 min</option>
+            </select>
+          </div>
+          
+          <div class="campo-formulario">
+            <select class="select-campo">
+              <option>Intensidad</option>
+              <option>Baja</option>
+              <option>Media</option>
+              <option>Alta</option>
+            </select>
+          </div>
+        </div>
+        
+        <button class="boton-guardar-centrado">Guardar Actividad</button>
+      </div>
+    </section>
+
+    <!-- ====== HISTORIAL DE ACTIVIDAD ====== -->
+    <section class="seccion-historial">
+      <h2 class="titulo-historial">Historial de actividad</h2>
+      <div class="contenedor-tabla">
+        <table class="tabla-historial">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Actividad</th>
+              <th>Duración</th>
+              <th>Intensidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>05/10/2025</td>
+              <td>Caminata</td>
+              <td>30 min</td>
+              <td>Baja</td>
+            </tr>
+            <tr>
+              <td>01/10/2025</td>
+              <td>Estiramiento</td>
+              <td>15 min</td>
+              <td>Media</td>
+            </tr>
+            <tr>
+              <td>25/09/2025</td>
+              <td>Trotar</td>
+              <td>45 min</td>
+              <td>Alta</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
