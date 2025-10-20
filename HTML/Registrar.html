@@ -6,6 +6,7 @@
     <title>FITALIA</title>
     <link rel="stylesheet" href="/CSS/stylesRegistrar.css">
     <link rel="icon" href="ico.png" type="image/png">
+    <script src="/JAVASCRIPT/RegistrarScript.js" defer></script>
 </head>
 <body>
     <div class="Barra_Superior">
@@ -13,7 +14,7 @@
             <h2 class="Fitalia_Bar">FITALIA</h2>
         </div>
         <div class="Home_Ba">
-            <button class="Home_Bar">Home</button>
+            <button id="btnHome-Registrar" class="Home_Bar">Home</button>
         </div>
     </div>
 
@@ -21,34 +22,34 @@
         <form class="Formulario">
             <div class="campo">
                 <label>Nombre</label>
-                <input type="text" name="nombre">
+                <input type="text" name="nombre" id="InputNombre">
             </div>
             <div class="campo">
                 <label>Apellidos</label>
-                <input type="text" name="apellidos">
+                <input type="text" name="apellidos" id="InputApellidos">
             </div>
 
             <div class="campo">
                 <label>Correo Electrónico</label>
-                <input type="email" name="correo">
+                <input type="email" name="correo" id="InputCorreo">
             </div>
             <div class="campo">
-                <label>Fecha de cumpleaños (MM/DD/YY)</label>
-                <input type="text" name="fecha">
+                <label>Fecha de cumpleaños</label>
+                <input type="date" name="fecha" id="InputCumpleaños">
             </div>
 
             <div class="campo">
                 <label>Password</label>
-                <input type="password" name="password">
+                <input type="password" name="password" id="InputPassword">
             </div>
             <div class="campo">
                 <label>Confirm password</label>
-                <input type="password" name="confirm_password">
+                <input type="password" name="confirm_password" id="InputConfirmPassword">
             </div>
 
             <div class="botones">
-                <button type="button" class="btn azul">CREAR CUENTA</button>
-                <button type="button" class="btn blanco">INICIAR SESIÓN</button>
+                <button id="btnCrearCuenta-Registrar" type="button" class="btn azul">CREAR CUENTA</button>
+                <button id="btnIniciar-Registrar" type="button" class="btn blanco">INICIAR SESIÓN</button>
             </div>
 
         </form>
