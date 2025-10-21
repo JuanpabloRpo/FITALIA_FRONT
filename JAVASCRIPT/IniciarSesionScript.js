@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Construir la URL final
-    const url = `https://localhost:7064/API/IniciarSesion/VerificarUsuario?${queryParams}`;
+    const url = `http://localhost:5283/API/IniciarSesion/VerificarUsuario?${queryParams}`;
 
     try {
       const response = await fetch(url, {

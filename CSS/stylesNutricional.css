@@ -1,53 +1,14 @@
 body {
   margin: 0;
- min-height: 100vh; 
-width: 100%;
+  min-height: 100vh; 
+  width: 100%;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(to bottom,  #B8E994,transparent 20%), linear-gradient(to top,  #B8E994, transparent 20%);
   color: #000;
-flex-direction: column;
-display: flex;
-
-
-}
-
-
-/* ====== BARRA SUPERIOR ====== */
-.Barra_Superior {
+  flex-direction: column;
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-}
 
-.Fitalia_Bar {
-  font-weight: 900;
-  font-size: 32px;
-  color: #000;
-  margin: 0;
-}
 
-.Menu {
-  display: flex;
-  gap: 10px;
-}
-
-.menu-btn {
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.menu-btn.principal {
-  background-color: #3bf670;
-}
-
-.menu-btn:hover {
-  opacity: 0.8;
 }
 
 /* ====== MENSAJE PRINCIPAL ====== */
