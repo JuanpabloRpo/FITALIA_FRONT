@@ -3,7 +3,7 @@ body {
   margin: 0;
   min-height: 100vh;
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter black', sans-serif;
   background: linear-gradient(to top, #f091eb, transparent 20%),linear-gradient(to bottom, #f091eb, transparent 20%);
   color: #111;
   display: flex;
@@ -11,48 +11,6 @@ body {
   align-items: center;
 }
 
-/* ====== BARRA SUPERIOR ====== */
-.Barra_Superior {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 60px;
-  box-sizing: border-box;
-}
-
-.Fitalia_Bar {
-  font-weight: 900;
-  font-size: 38px;
-  margin: 0;
-  color: #111;
-}
-
-.Menu {
-  display: flex;
-  gap: 15px;
-}
-
-.menu-btn {
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 20px;
-  cursor: pointer;
-  height: 40px;
-  margin-right: 30px;
-}
-
-.principal {
-  background-color: #f2bcef;
-  color: #333;
-}
-
-.menu-btn:hover {
-  background: #ddd;
-  color: #111;
-}
 
 /* ====== CONTENIDO PRINCIPAL ====== */
 .Contenido {
