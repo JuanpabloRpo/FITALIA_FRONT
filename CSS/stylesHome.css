@@ -77,7 +77,7 @@ body {
 
 .Home_Iniciar:hover,
 .Home_Registrarse:hover {
-  background-color: #333;
+  background-color: rgb(193, 192, 192);
 }
 
 /* Contenedor general de los tres bloques */
