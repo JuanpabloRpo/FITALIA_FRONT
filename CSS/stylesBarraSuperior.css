@@ -39,6 +39,7 @@
   display: none;
   flex-direction: column;
   z-index: 50;
+  text-align: left;
 }
 
 .dropdown-menu a {

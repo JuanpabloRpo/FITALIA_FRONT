@@ -1,3 +1,12 @@
+html, body {
+  overflow: auto;
+  scrollbar-width: none;   /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;           /* Chrome / Edge */
+}
 body {
   margin: 0;
   min-height: 100vh; 
