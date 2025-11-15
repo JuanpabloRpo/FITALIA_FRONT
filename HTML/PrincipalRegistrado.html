@@ -4,28 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FITALIA</title>
+
     <link rel="stylesheet" href="/CSS/stylesPrincipalRegistrado.css">
     <link rel="stylesheet" href="/CSS/stylesBarraSuperior.css">
     <link rel="icon" href="ico.png" type="image/png">
+
     <script src="/JAVASCRIPT/BotonesBarraSuperiorScript.js" defer></script>
+    <script src="/JAVASCRIPT/PrincipalRegistradoScript.js" defer></script>
 </head>
+
 <body>
 
+    
     <!-- ====== BARRA SUPERIOR ====== -->
-  <header class="Barra_Superior">
-    <h1 class="Fitalia_Bar">FITALIA</h1>
-    <nav class="Menu">
-      <button id="btnSaludFisica" class="menu-btn">Salud Física</button>
-      <button id="btnSaludMental" class="menu-btn">Salud Mental</button>
-      <button id="btnNutricional" class="menu-btn">Nutricional</button>
-      <button id="btnHome" class="menu-btn principal-home">Home</button>
-    </nav>
-  </header>
+<header class="Barra_Superior">
 
+    <div class="logo-menu">
+        <div class="hamburger" id="hamburgerMenu">☰</div>
+        <h1 class="Fitalia_Bar">FITALIA</h1>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="GestionPerfil.html">Perfil</a>
+            <a href="Home.html">Cerrar sesión</a>
+        </div>
+    </div>
+    <!-- MENÚ DE BOTONES -->
+    <nav class="Menu">
+        <button id="btnSaludFisica" class="menu-btn">Salud Física</button>
+        <button id="btnSaludMental" class="menu-btn">Salud Mental</button>
+        <button id="btnNutricional" class="menu-btn">Nutricional</button>
+        <button id="btnHome" class="menu-btn principal-home">Home</button>
+    </nav>
+
+</header>
+
+
+    <!-- ====== CONTENIDO PRINCIPAL ====== -->
     <div class="Bienvenida_contain">
-        <h3 class="Bienvenida_text">Bienvenido  </h3>
+        <h3 class="Bienvenida_text">Bienvenido</h3>
         <p class="Motivacion_text">Hoy es un gran dia para cuidar de ti</p>
     </div>
+
     <div class="Contain_Carrusel">
         <div class="Carrusel">
             <div class="carrusel-track">
@@ -36,13 +54,12 @@
             </div>
         </div>
     </div>
+
     <div class="Contain_Recomendaciones">
-        <!-- Radios para controlar las imágenes -->
         <input type="radio" name="slide2" id="r1" checked>
         <input type="radio" name="slide2" id="r2">
         <input type="radio" name="slide2" id="r3">
 
-        <!-- Carrusel -->
         <div class="Carrusel2">
             <div class="slide">
                 <img src="/ASSERTS/PrincipalRegistrado/Frutas.jpg" alt="Frutas saludables">
@@ -56,14 +73,33 @@
                 <img src="/ASSERTS/PrincipalRegistrado/Ejercicio.jpg" alt="Ejercicio saludable">
                 <p>Haz ejercicio regularmente</p>
             </div>
-                <div class="navegacion2">
-                    <label for="r1"></label>
-                    <label for="r2"></label>
-                    <label for="r3"></label>
-                </div>
+
+            <div class="navegacion2">
+                <label for="r1"></label>
+                <label for="r2"></label>
+                <label for="r3"></label>
+            </div>
         </div>
-        <!-- Indicadores -->
-        
     </div>
+
+
+    <div class="overlay">
+        <div class="modal-estado">
+            <h2>¿Cómo te sientes del 1 al 5?</h2>
+            <p>Esta información nos ayuda a brindarte una mejor atención</p>
+
+            <div class="opciones">
+                <button class="nivel n1">1</button>
+                <button class="nivel n2">2</button>
+                <button class="nivel n3">3</button>
+                <button class="nivel n4">4</button>
+                <button class="nivel n5">5</button>
+            </div>
+
+        </div>
+    </div>
+
+   
+
 </body>
 </html>

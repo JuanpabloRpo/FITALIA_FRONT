@@ -8,6 +8,51 @@
   box-sizing: border-box;
 }
 
+.logo-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.hamburger:hover {
+  background-color: #e7e7e7;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: white;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+  width: 150px;
+  display: none;
+  flex-direction: column;
+  z-index: 50;
+}
+
+.dropdown-menu a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #111;
+  font-size: 16px;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f1f1;
+}
+
 .Fitalia_Bar {
   font-weight: 900;
   font-size: 38px;

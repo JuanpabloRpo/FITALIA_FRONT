@@ -9,17 +9,16 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-
-
+/* ====== BIENVENIDA ====== */
 .Bienvenida_contain{
     background-color: transparent;
     display: flex;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
-    flex-direction: column;  /* apila el texto y los botones */
-    justify-content: center; /* centra verticalmente */
+    flex-direction: column;
+    justify-content: center;
     align-items: left;
-    padding: 50px 100px;     /* centra horizontalmente */
+    padding: 50px 100px;
     width: 100%;
     height: 20vh;
     box-sizing: border-box;
@@ -36,6 +35,7 @@ body {
     font-size: 32px;
     box-sizing: border-box;
 }
+
 .Motivacion_text {
     background-color:transparent;
     font-family: "poppins", sans-serif;
@@ -47,6 +47,8 @@ body {
     font-size: 18px;
     box-sizing: border-box;
 }
+
+/* ===== CARRUSEL PRINCIPAL ===== */
 .Contain_Carrusel{
     display: flex;
     width: 100%;
@@ -55,46 +57,48 @@ body {
     box-sizing: border-box;
     padding: 50px 100px;
     justify-content: center;
-
 }
+
 .Carrusel{
     background-color: transparent;
     width: 30%;
-    height: 28vh;     /* ancho máximo del carrusel */
-    overflow-x: auto;       /* permite desplazamiento horizontal */
-    scroll-snap-type: x mandatory; /* activa el “snap” horizontal */
+    height: 28vh;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     display: flex;
     border-radius: 8px;
-    scrollbar-width: none;  /* oculta la barra de desplazamiento (Firefox) */
+    scrollbar-width: none;
     box-sizing: border-box;
     justify-content: center;
     margin: 0;
     align-items: center;
 }
+
 .carrusel-track {
     display: flex;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     animation: scroll 16s infinite ease-in-out;
-    
 }
 
 .carrusel-track img{
     width: 100%;
-    flex-shrink: 0;         /* evita que se reduzcan */
+    flex-shrink: 0;
     scroll-snap-align: start;
     border-radius: 8px;
     object-fit: cover;
 }
+
 @keyframes scroll {
     0% { transform: translateX(0); }
     25% { transform: translateX(-100%); }
     50% { transform: translateX(-200%); }
     75% { transform: translateX(-300%); }
     100% { transform: translateX(0); }
-    }
+}
 
+/* ===== CARRUSEL SECUNDARIO ===== */
 .Contain_Recomendaciones {
     position: relative;
     width: 100vw;
@@ -109,12 +113,10 @@ body {
     box-sizing: border-box;
 }
 
-/* Ocultamos los radios */
 .Contain_Recomendaciones input {
     display: none;
 }
 
-/* Carrusel contenedor */
 .Carrusel2 {
     position: relative;
     background-color: transparent;
@@ -126,7 +128,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Slides */
 .slide {
     position: absolute;
     width: 100%;
@@ -145,7 +146,6 @@ body {
     border-radius: 8px;
     object-fit: cover;
     object-position: top;
-    background-color: transparent;
     filter: brightness(0.85);
 }
 
@@ -158,19 +158,11 @@ body {
     font-size: 1.3em;
     font-weight: bold;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    text-align: center;
 }
 
-/* Mostrar el slide activo según el input */
-#r1:checked ~ .Carrusel2 .slide:nth-child(1) {
-    opacity: 1;
-}
-#r2:checked ~ .Carrusel2 .slide:nth-child(2) {
-    opacity: 1;
-}
-#r3:checked ~ .Carrusel2 .slide:nth-child(3) {
-    opacity: 1;
-}
+#r1:checked ~ .Carrusel2 .slide:nth-child(1) { opacity: 1; }
+#r2:checked ~ .Carrusel2 .slide:nth-child(2) { opacity: 1; }
+#r3:checked ~ .Carrusel2 .slide:nth-child(3) { opacity: 1; }
 
 /* Indicadores */
 .navegacion2 {
@@ -199,4 +191,78 @@ body {
 #r2:checked ~ .navegacion2 label[for="r2"],
 #r3:checked ~ .navegacion2 label[for="r3"] {
     background: rgb(240, 239, 239);
+}
+
+/* ====== OVERLAY Y MODAL ====== */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-estado {
+    width: 80%;
+    max-width: 700px;
+    height: 250px;
+    padding: 40px;
+    background: white;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    
+}
+
+.modal-estado h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.modal-estado p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.opciones {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.nivel {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform .2s ease;
+}
+
+.n1 { background: #0F0F0F; }
+.n2 { background: #0E294A; }
+.n3 { background: #255CBF; }
+.n4 { background: #3D7DFF; }
+.n5 { background: #6AA5FF; }
+
+.nivel:hover {
+    transform: scale(1.1);
+}
+
+.emojis {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 26px;
+    padding: 0 5px;
 }
