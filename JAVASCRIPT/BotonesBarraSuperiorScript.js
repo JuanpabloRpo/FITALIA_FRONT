@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnSaludFisica").addEventListener("click", () => {
     window.location.href = "SaludFisica.html";
   });
+   // ===== BOTONES DE LA BARRA SUPERIOR =====
+  document.getElementById("btnSaludFisica").addEventListener("click", () => {
+    window.location.href = "SaludFisica.html";
+  });
 
   document.getElementById("btnSaludMental").addEventListener("click", () => {
     window.location.href = "SaludMental.html";
@@ -19,6 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
   
 });
 // ===== MENÚ HAMBURGUESA =====
+  document.getElementById("btnSaludMental").addEventListener("click", () => {
+    window.location.href = "SaludMental.html";
+  });
+
+  document.getElementById("btnNutricional").addEventListener("click", () => {
+    window.location.href = "Nutricional.html";
+  });
+
+  document.getElementById("btnHome").addEventListener("click", () => {
+    window.location.href = "PrincipalRegistrado.html";
+  });
+
+  // ===== MENÚ HAMBURGUESA =====
   const menuIcon = document.getElementById("hamburgerMenu");
   const dropdown = document.getElementById("dropdownMenu");
 
