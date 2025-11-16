@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Construir la URL final
-    const url = `http://localhost:5282/API/IniciarSesion/VerificarUsuario?${queryParams}`;
+    const url = `https://localhost:7064/API/IniciarSesion/VerificarUsuario?${queryParams}`;
 
     try {
       const response = await fetch(url, {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         window.location.href = "/HTML/PrincipalRegistrado.html";
-      }else if(response.status = 404){
+      } else if (response.status === 404){
         alert("Usuario o contraseña no existe");
       }else{
         throw new Error(`Error en la solicitud: ${response.status}`);
