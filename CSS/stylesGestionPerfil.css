@@ -1,200 +1,247 @@
 body {
-      min-height: 100vh; 
+    min-height: 100vh; 
     width: 100%; 
     margin: 0;
+    /* Tu fondo original */
     background: linear-gradient(to bottom, #AEE1FF, transparent 20%),linear-gradient(to top, #AEE1FF, transparent 20%);
+    background-attachment: fixed; /* Para que el fondo no se mueva al hacer scroll */
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Contenedor Principal */
+.contenedor-principal {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-
-/* Barra superior */
-.Barra_Superior {
-     width: 100%;
-    background-color: transparent;
-   
+/* === TARJETA DE PERFIL === */
+.tarjeta-perfil {
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
     text-align: center;
-    padding: 10px 0;
-}
-
-.Fitalia_Bar {
-    
-     font-weight: 900;
-    font-size: 48px;
-    letter-spacing: 1px;
-    color: #020101;
-    margin: 0;
-}
-
-/* Contenedor principal */
-.contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-/* Contenedor del perfil */
-.contenedor-perfil {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.foto-perfil {
     position: relative;
-    width: 160px;
-    height: 160px;
 }
 
-.foto-perfil img {
+.avatar-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.avatar-container img {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
     object-fit: cover;
 }
 
-.icono-camara {
+/* Botón de configuración (engranaje) */
+.btn-settings {
     position: absolute;
-    right: 10px;
-    bottom: 5px;
-    font-size: 35px;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-settings:hover {
+    background: #333;
+    color: #fff;
+}
+
+.info-usuario h2 {
+    margin: 10px 0 5px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.email-text {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-item .label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-item .value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* === MODAL (POP UP) === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex; /* Usamos Flex para centrar */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    max-height: 90vh; /* Por si es muy alto en moviles */
+    overflow-y: auto;
+}
+
+.modal-overlay.activo .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    font-size: 2rem;
     cursor: pointer;
 }
 
-.nombre-usuario {
-    margin-top: 35px;
-    font-size: 50px;
-    color: #000000;
-    font-weight: 600;
-}
-
-/* Contenedor del formulario */
-.contenedor-formulario {
-    
-    padding: 25px 40px;
-    border-radius: 15px;
-    width: 600px;
-}
-
-.formulario .campo {
-    position: relative;
+/* Formulario dentro del modal */
+.campo-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.formulario label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: 800;
+.campo-imagen img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
-.formulario input {
-    width: 100%;
-    padding: 8px 30px 8px 10px;
-    border: 1px solid #ccc;
+.btn-subir-foto {
+    color: #007bff;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo.full-width {
+    grid-column: span 2;
+}
+
+.campo label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.campo input {
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 8px;
 }
 
-.icono {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translatex(400%);
-    font-size: 20px;
-    color: #000; /* Negro */
+.modal-footer {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-guardar {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    
 }
 
-
-
-
-/* Tablets */
-@media (max-width: 1024px) {
-    .Fitalia_Bar {
-        font-size: 40px;
-    }
-
-    .contenedor {
-        width: 90%;
-        margin-top: 30px;
-        gap: 25px;
-    }
-
-    .foto-perfil {
-        width: 140px;
-        height: 140px;
-    }
-
-    .nombre-usuario {
-        font-size: 36px;
-    }
-
-    .contenedor-formulario {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .formulario input {
-        font-size: 0.95em;
-        padding: 10px 38px 10px 10px;
-    }
-
-    .icono {
-        width: 26px;
-        height: 26px;
-        font-size: 13px;
-        right: 8px;
-    }
+.btn-cancelar {
+    background: #eee;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-/* Celulares  */
+/* Responsive */
 @media (max-width: 600px) {
-    .Fitalia_Bar {
-        font-size: 32px;
+    .grid-inputs {
+        grid-template-columns: 1fr; /* Una sola columna en movil */
     }
-
-    .contenedor {
-        width: 95%;
-        margin-top: 25px;
-        gap: 20px;
-    }
-
-    .foto-perfil {
-        width: 110px;
-        height: 110px;
-    }
-
-    .nombre-usuario {
-        font-size: 1.4em;
-        text-align: center;
-        margin-top: 25px;
-    }
-
-    .contenedor-formulario {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .formulario label {
-        font-size: 0.9em;
-    }
-
-    .formulario input {
-        font-size: 0.9em;
-        padding: 8px 35px 8px 10px;
-    }
-
-    .icono {
-        width: 24px;
-        height: 24px;
-        font-size: 12px;
-        right: 6px;
+    .campo.full-width {
+        grid-column: span 1;
     }
 }

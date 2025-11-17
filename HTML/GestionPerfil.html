@@ -1,83 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GestionPerfil</title>
+    <title>Mi Perfil - FITALIA</title>
     <link rel="stylesheet" href="/CSS/stylesGestionPerfil.css">
     <link rel="stylesheet" href="/CSS/stylesBarraSuperior.css">
     <link rel="icon" href="ico.png" type="image/png">
-    <script src="/JAVASCRIPT/BotonesBarraSuperiorScript.js" defer></script>
-    <!-- Font Awesome gratuito -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <script src="/JAVASCRIPT/BotonesBarraSuperiorScript.js" defer></script>
+    <script src="/JAVASCRIPT/GestionPerfilScript.js" defer></script>
 </head>
 <body>
-    <!-- Barra superior -->
+
     <header class="Barra_Superior">
+        <div class="logo-menu">
+            <div class="hamburger" id="hamburgerMenu">☰</div>
+            <h1 class="Fitalia_Bar">FITALIA</h1>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="PrincipalRegistrado.html">Home</a>
+                <a href="Home.html" id="cerrarSesion">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
 
-    <div class="logo-menu">
-        <!-- HAMBURGUESA A LA IZQUIERDA -->
-        <div class="hamburger" id="hamburgerMenu">☰</div>
+    <main class="contenedor-principal">
+        
+        <div class="tarjeta-perfil">
+            <div class="header-tarjeta">
+                <div class="avatar-container">
+                    <img id="imgPerfilDisplay" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto de perfil">
+                </div>
+                <button class="btn-settings" id="btnAbrirModal" title="Editar Perfil">
+                    <i class="fa-solid fa-gear"></i> Editar
+                </button>
+            </div>
 
-        <!-- LOGO/TÍTULO -->
-        <h1 class="Fitalia_Bar">FITALIA</h1>
+            <div class="info-usuario">
+                <h2 id="nombreDisplay">Cargando...</h2>
+                <p class="email-text" id="emailDisplay">...</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="label">Cumpleaños</span>
+                        <span class="value" id="cumpleDisplay">--/--/--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Estado</span>
+                        <span class="value">Activo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <!-- MENÚ DESPLEGABLE -->
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="PrincipalRegistrado.html">Home</a>
-            <a href="Home.html">Cerrar sesión</a>
+    </main>
+
+    <div class="modal-overlay" id="modalEdicion">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Perfil</h3>
+                <button class="btn-cerrar" id="btnCerrarModal">&times;</button>
+            </div>
+            
+            <form class="formulario-editar" id="formEditarPerfil">
+                <div class="campo-imagen">
+                    <img id="imgPreview" src="" alt="Preview">
+                    <label for="inputImagen" class="btn-subir-foto">
+                        <i class="fa-solid fa-camera"></i> Cambiar foto
+                    </label>
+                    <input type="file" id="inputImagen" accept="image/*" hidden>
+                </div>
+
+                <div class="grid-inputs">
+                    <div class="campo">
+                        <label>Nombre</label>
+                        <input type="text" id="inputNombre" required>
+                    </div>
+                    <div class="campo">
+                        <label>Apellidos</label>
+                        <input type="text" id="inputApellido">
+                    </div>
+                    <div class="campo full-width">
+                        <label>Correo Electrónico</label>
+                        <input type="email" id="inputEmail" readonly disabled style="background: #f0f0f0;">
+                    </div>
+                    <div class="campo">
+                        <label>Fecha de Cumpleaños</label>
+                        <input type="date" id="inputCumple">
+                    </div>
+                    <div class="campo">
+                        <label>Contraseña</label>
+                        <input type="password" id="inputPassword" placeholder="Nueva contraseña">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="btn-guardar">Guardar Cambios</button>
+                </div>
+            </form>
         </div>
     </div>
 
-    
-
-</header>
-
-    <main class="contenedor">
-        <!-- Contenedor del perfil -->
-        <section class="contenedor-perfil">
-            <div class="foto-perfil">
-                <a href="#"><img src="/ASSERTS/GestionPerfil/perfilFoto.png" alt="Foto de perfil"></a>
-                
-                
-            </div>
-            <h2 class="nombre-usuario">David Restrepo</h2>
-        </section>
-
-        <!-- Contenedor del formulario -->
-        <section class="contenedor-formulario">
-            <form class="formulario">
-                <div class="campo">
-                    <label>Nombre</label>
-                    <input type="text">
-                   
-                </div>
-
-                <div class="campo">
-                    <label>Apellidos</label>
-                    <input type="text">
-                    
-                </div>
-
-                <div class="campo">
-                    <label>Correo Electrónico</label>
-                    <input type="email">
-                    
-                </div>
-
-                <div class="campo">
-                    <label>Fecha de cumpleaños (MM/DD/YY)</label>
-                    <input type="date">
-                    
-                </div>
-
-                <div class="campo">
-                    <label>Contraseña</label>
-                    <input type="password">
-                    
-                </div>
-            </form>
-        </section>
-    </main>
 </body>
 </html>
