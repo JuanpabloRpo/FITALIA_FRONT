@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    const usuarioGuardado = localStorage.getItem("usuarioFitalia");
+
+    // PASO 3: Verificar seguridad (Si no hay usuario, lo mandamos al login)
+    if (!usuarioGuardado) {
+        alert("Debes iniciar sesión primero");
+        window.location.href = "IniciarSesion.html";
+        return; // Detenemos la ejecución
+    }
+
+    // Convertimos el texto de vuelta a Objeto JavaScript
+    const usuario = JSON.parse(usuarioGuardado);
+
+    // AHORA PUEDES USAR LOS DATOS
+    console.log("Usuario actual:", usuario);
+    
+    // Ejemplo: Poner el nombre en algún lugar (si tu HTML tuviera un id="nombreUsuario")
+    // document.getElementById("nombreUsuario").innerText = usuario.nombre; 
+
+    // Lógica para el estado de ánimo...
+
     const botones = document.querySelectorAll(".nivel");
     const overlay = document.querySelector(".overlay");
 
@@ -30,4 +51,5 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("estadoAnimoValor", boton.textContent);
         });
     });
+    
 });

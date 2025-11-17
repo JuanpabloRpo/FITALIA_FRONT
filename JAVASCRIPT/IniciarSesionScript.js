@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
   const btnIniciar = document.getElementById("btnIniciar-IniciarSesion");
 
   btnIniciar.addEventListener("click", async (event) => {
@@ -18,7 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Construir la URL final
-    const url = `https://localhost:7064/API/IniciarSesion/VerificarUsuario?${queryParams}`;
+    // Esta URL ya nunca cambiará, sin importar en qué PC ejecutes el backend
+    const baseUrl = "https://localhost:7064"; 
+
+    const url = `${baseUrl}/API/IniciarSesion/VerificarUsuario?${queryParams}`;
 
     try {
       const response = await fetch(url, {
@@ -29,15 +33,25 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (response.ok) {
-        window.location.href = "/HTML/PrincipalRegistrado.html";
-      } else if (response.status === 404){
+        const data = await response.json();
+        console.log("Respuesta del servidor:", data);
+        if (data){
+          localStorage.setItem("usuarioFitalia", JSON.stringify(data))
+            // Opcional: Si tu API devuelve un estado de ánimo inicial, asegúrate que esté en 'data'
+            // Si no, puedes inicializarlo aparte si quieres:
+            // localStorage.setItem("estadoAnimo", "Neutro");
+          window.location.href = "/HTML/PrincipalRegistrado.html";
+        }else{
+          alert("No se pudo traer los datos del usuario")
+        }
+
+      }else if(response.status = 404){
         alert("Usuario o contraseña no existe");
       }else{
         throw new Error(`Error en la solicitud: ${response.status}`);
       }
 
-      const data = await response.json();
-      console.log("Respuesta del servidor:", data);
+      
 
       // Aquí puedes manejar la respuesta según lo que devuelva tu API
     //   if (data.token) {
