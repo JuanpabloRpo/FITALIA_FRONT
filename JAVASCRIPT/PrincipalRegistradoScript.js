@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ---  VALIDAR SI HOY YA FUE MOSTRADO ---
     const hoy = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
     const ultimaVez = localStorage.getItem("estadoAnimoFecha");
+    
+    
 
     // Si ya se pregunto HOY → NO mostrar
     if (ultimaVez === hoy) {
@@ -49,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // (Opcional) Guardar nivel seleccionado
             localStorage.setItem("estadoAnimoValor", boton.textContent);
+            
         });
     });
     

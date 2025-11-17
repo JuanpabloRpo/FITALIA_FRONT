@@ -100,10 +100,24 @@
 
 
 
-.menu-btn:hover {
-  background: #ddd;
+.salud-fisica:hover  {
+  background: #75c6f6;
   color: #111;
 }
+.salud-mental:hover  {
+  background:#f2bcef ;
+  color: #111;
+}
+.nutricional:hover  {
+  background: #a2f58b;
+  color: #111;
+}
+.home:hover  {
+  background:rgb(188, 187, 188);
+  color: #111;
+}
+
+
 
 
 .Home_Bar {
