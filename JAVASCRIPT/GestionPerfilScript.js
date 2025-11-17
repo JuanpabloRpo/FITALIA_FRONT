@@ -1,149 +1,204 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // === 1. REFERENCIAS A ELEMENTOS DEL DOM ===
-    // Vista Principal (Tarjeta)
+
+    const API_URL = "https://localhost:7064/api/GestionarPerfil";
+
+    // === 1. REFERENCIAS ===
     const nombreDisplay = document.getElementById("nombreDisplay");
     const emailDisplay = document.getElementById("emailDisplay");
-    const cumpleDisplay = document.getElementById("cumpleDisplay"); // Aquí mostraremos la edad
+    const cumpleDisplay = document.getElementById("cumpleDisplay");
     const imgPerfilDisplay = document.getElementById("imgPerfilDisplay");
-    
-    // Modal y Botones
+
     const modal = document.getElementById("modalEdicion");
     const btnAbrirModal = document.getElementById("btnAbrirModal");
     const btnCerrarModal = document.getElementById("btnCerrarModal");
     const btnCancelar = document.getElementById("btnCancelar");
     const formEditar = document.getElementById("formEditarPerfil");
-    
-    // Inputs del Formulario
+
     const inputNombre = document.getElementById("inputNombre");
     const inputApellido = document.getElementById("inputApellido");
     const inputEmail = document.getElementById("inputEmail");
-    const inputCumple = document.getElementById("inputCumple"); // Input de fecha
+    const inputCumple = document.getElementById("inputCumple");
     const inputPassword = document.getElementById("inputPassword");
     const inputImagen = document.getElementById("inputImagen");
     const imgPreview = document.getElementById("imgPreview");
 
-    // === 2. CARGAR DATOS DEL LOCALSTORAGE ===
-    // Recuperamos el objeto tal cual lo mostraste en la consola
-    let usuario = JSON.parse(localStorage.getItem("usuarioFitalia")) || {};
-    
-    // Función para pintar los datos en la pantalla
-    function actualizarVista() {
-        // Validamos que existan los datos para evitar errores
-        if (usuario) {
-            // Usamos 'nombre' y 'apellidoPaterno' según tu consola
-            const nombreCompleto = `${usuario.nombre || 'Usuario'} ${usuario.apellidoPaterno || ''}`;
-            nombreDisplay.textContent = nombreCompleto;
-            
-            // Usamos 'correo'
-            emailDisplay.textContent = usuario.correo || 'Sin correo';
-            
-            // Tu backend trae 'edad' (ej: 27), no fecha. Mostramos la edad.
-            // Nota: Si en el HTML dice "Cumpleaños", podrías cambiar el texto a "Edad" con JS o en el HTML.
-            if (usuario.edad) {
-                cumpleDisplay.textContent = `${usuario.edad} Años`;
-                // Opcional: Cambiar la etiqueta visualmente si lo deseas
-                const etiquetaEdad = cumpleDisplay.previousElementSibling; // El span que dice "CUMPLEAÑOS"
-                if(etiquetaEdad) etiquetaEdad.textContent = "EDAD"; 
-            } else {
-                cumpleDisplay.textContent = "--";
-            }
-            
-            // Foto de perfil (si agregaste una lógica para guardarla en el futuro)
-            if(usuario.fotoPerfil){
-                imgPerfilDisplay.src = usuario.fotoPerfil;
-            }
+    // === UTILIDAD: CALCULAR EDAD ===
+    function calcularEdadDesdeFecha(fechaString) {
+        if (!fechaString || fechaString.length < 10) return null;
+        const hoy = new Date();
+        const cumple = new Date(fechaString);
+        let edad = hoy.getFullYear() - cumple.getFullYear();
+        const m = hoy.getMonth() - cumple.getMonth();
+        if (m < 0 || (m === 0 && hoy.getDate() < cumple.getDate())) {
+            edad--;
         }
+        return edad;
     }
 
-    // Ejecutar carga inicial
+    // === 2. CARGAR DATOS ===
+    let usuario = JSON.parse(localStorage.getItem("usuarioFitalia")) || {};
+
+    function actualizarVista() {
+        if (!usuario) return;
+
+        nombreDisplay.textContent = `${usuario.nombre || "Usuario"} ${usuario.apellidoPaterno || ""}`;
+        emailDisplay.textContent = usuario.correo || "--";
+
+        const edadCalculada = calcularEdadDesdeFecha(usuario.fechaNacimiento);
+        
+        if (edadCalculada !== null) {
+            cumpleDisplay.textContent = `${edadCalculada} Años`;
+            const etiquetaEdad = cumpleDisplay.previousElementSibling;
+            if (etiquetaEdad) etiquetaEdad.textContent = "EDAD";
+        } else if (usuario.fechaNacimiento && !isNaN(usuario.fechaNacimiento)) {
+            cumpleDisplay.textContent = `${usuario.fechaNacimiento} Años`;
+        } else {
+            cumpleDisplay.textContent = "--";
+        }
+
+        imgPerfilDisplay.src = usuario.fotoPerfil || "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+    }
+
     actualizarVista();
 
-    // === 3. ABRIR MODAL Y RELLENAR FORMULARIO ===
+    // === 3. ABRIR MODAL ===
     if (btnAbrirModal) {
         btnAbrirModal.addEventListener("click", () => {
             modal.classList.add("activo");
-            
-            // Rellenamos los inputs con las claves CORRECTAS de tu backend
             inputNombre.value = usuario.nombre || "";
-            
-            // Combinamos Paterno y Materno para el campo de apellidos, o solo Paterno
-            const apellidos = `${usuario.apellidoPaterno || ''} ${usuario.apellidoMaterno || ''}`.trim();
-            inputApellido.value = apellidos;
-            
+            inputApellido.value = `${usuario.apellidoPaterno || ""} ${usuario.apellidoMaterno || ""}`.trim();
             inputEmail.value = usuario.correo || "";
             
-            // OJO: Tu backend trae 'edad' (numero), pero el input es tipo 'date'.
-            // No podemos convertir "27" a una fecha exacta automáticamente.
-            // Dejaremos el input de fecha vacío para que el usuario lo seleccione si quiere actualizarlo,
-            // o si tienes una fecha guardada localmente, úsala.
-            inputCumple.value = ""; 
+            inputCumple.value = (usuario.fechaNacimiento && usuario.fechaNacimiento.includes("-")) ? usuario.fechaNacimiento : "";
             
-            inputPassword.value = ""; // Por seguridad, la contraseña suele dejarse vacía
-            
-            // Preview de imagen
+            inputPassword.value = "";
             imgPreview.src = usuario.fotoPerfil || "https://cdn-icons-png.flaticon.com/512/149/149071.png";
         });
     }
 
-    // === 4. CERRAR MODAL ===
     const cerrarModal = () => modal.classList.remove("activo");
     if (btnCerrarModal) btnCerrarModal.addEventListener("click", cerrarModal);
     if (btnCancelar) btnCancelar.addEventListener("click", cerrarModal);
 
-    // === 5. PREVISUALIZACIÓN DE IMAGEN ===
+    // === 4. PREVIEW IMAGEN ===
     if (inputImagen) {
-        inputImagen.addEventListener("change", function() {
+        inputImagen.addEventListener("change", function () {
             const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    imgPreview.src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => imgPreview.src = e.target.result;
+            reader.readAsDataURL(file);
         });
     }
 
-    // === 6. GUARDAR CAMBIOS (ACTUALIZAR EL OBJETO) ===
+    // === 5. FUNCIÓN DE PETICIÓN API ===
+    async function actualizarAPI(endpoint, data) {
+        try {
+            const propiedadClave = variableEndPoint(endpoint); 
+            
+            const { userId, [propiedadClave]: valorClave } = data;
+
+            let nombreParametroApi = propiedadClave;
+
+            if (endpoint === "CambiarFechaNacimiento") {
+                nombreParametroApi = "fechaNueva"; 
+            }
+
+            const params = new URLSearchParams({
+                userId: userId,
+                [nombreParametroApi]: valorClave 
+            });
+            
+            const response = await fetch(`${API_URL}/${endpoint}?${params}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+            
+            return true;
+            
+        } catch (error) {
+            console.error("Error en actualizarAPI:", error);
+            return false;
+        }
+    }
+
+    function variableEndPoint(endpoint) {
+        switch (endpoint) {
+            case "CambiarNombre": return "nombre"; 
+            case "CambiarApellidoPaterno": return "apellidoPaterno";
+            case "CambiarApellidoMaterno": return "apellidoMaterno";
+            case "CambiarCorreo": return "correo";
+            
+            case "CambiarFechaNacimiento": return "fechaNacimiento"; 
+
+            case "CambiarContrasena": return "contrasena";
+            case "CambiarFotoPerfil": return "fotoPerfil";
+            default:
+                console.error(`El endpoint '${endpoint}' no está definido.`);
+                return null;
+        }
+    }
+
+    // === 6. GUARDAR CAMBIOS ===
     if (formEditar) {
-        formEditar.addEventListener("submit", (e) => {
+        formEditar.addEventListener("submit", async (e) => {
             e.preventDefault();
+            const userId = usuario.userId;
 
-            // Actualizamos el objeto 'usuario' manteniendo la estructura de tu backend
-            usuario.nombre = inputNombre.value;
-            
-            // Lógica simple para apellidos: Todo lo que escriban lo ponemos en Paterno temporalmente
-            // o podrías intentar separarlo por espacios.
-            usuario.apellidoPaterno = inputApellido.value; 
-            
-            // usuario.correo = inputEmail.value; // Usualmente el correo es ID y no se edita, pero si quieres:
-            // usuario.correo = inputEmail.value;
 
-            // Si el usuario seleccionó una fecha, calculamos la edad (opcional)
-            if (inputCumple.value) {
-                const nacimiento = new Date(inputCumple.value);
-                const hoy = new Date();
-                let edadCalculada = hoy.getFullYear() - nacimiento.getFullYear();
-                usuario.edad = edadCalculada; 
+            if (inputNombre.value !== usuario.nombre) {
+                await actualizarAPI("CambiarNombre", { userId, nombre: inputNombre.value });
+                usuario.nombre = inputNombre.value;
             }
 
-            // Guardar foto si cambió (Base64)
-            if (imgPreview.src && !imgPreview.src.includes("flaticon")) {
-                 usuario.fotoPerfil = imgPreview.src;
+
+            let [paterno, materno] = inputApellido.value.split(" ");
+            paterno = paterno || ""; materno = materno || "";
+            if (paterno !== usuario.apellidoPaterno) {
+                await actualizarAPI("CambiarApellidoPaterno", { userId, apellidoPaterno: paterno });
+                usuario.apellidoPaterno = paterno;
+            }
+            if (materno !== usuario.apellidoMaterno) {
+                await actualizarAPI("CambiarApellidoMaterno", { userId, apellidoMaterno: materno });
+                usuario.apellidoMaterno = materno;
             }
 
-            // 1. Guardamos en LocalStorage
+            // ... (Lógica correo igual) ...
+            if (inputEmail.value !== usuario.correo) {
+                await actualizarAPI("CambiarCorreo", { userId, correo: inputEmail.value });
+                usuario.correo = inputEmail.value;
+            }
+
+
+            if (inputCumple.value && inputCumple.value !== usuario.fechaNacimiento) {
+                await actualizarAPI("CambiarFechaNacimiento", {
+                    userId,
+                    fechaNacimiento: inputCumple.value
+                });
+                usuario.fechaNacimiento = inputCumple.value;
+            }
+
+
+            if (inputPassword.value.trim().length > 0) {
+                await actualizarAPI("CambiarContrasena", { userId, contrasena: inputPassword.value });
+            }
+
+
+            if (imgPreview.src && !imgPreview.src.includes("flaticon") && imgPreview.src !== usuario.fotoPerfil) {
+                await actualizarAPI("CambiarFotoPerfil", { userId, fotoPerfil: imgPreview.src });
+                usuario.fotoPerfil = imgPreview.src;
+            }
+
+
             localStorage.setItem("usuarioFitalia", JSON.stringify(usuario));
-
-            // 2. Actualizamos la vista
             actualizarVista();
-            
-            // 3. Cerramos modal
             cerrarModal();
-            
             alert("Perfil actualizado correctamente");
-            console.log("Usuario actualizado:", usuario);
         });
     }
 });
