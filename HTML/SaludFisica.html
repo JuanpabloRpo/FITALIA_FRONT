@@ -118,6 +118,7 @@
               <th>Intensidad</th>
               <th>Estado</th>
               <th>Acciones</th>
+              <th>Recordatorio</th>
             </tr>
           </thead>
           <tbody>
@@ -143,6 +144,30 @@
         </table>
       </div>
     </section>
+
+    <!-- 🟦 MODAL PARA RECORDATORIOS -->
+<div id="modalRecordatorio" class="modal">
+    <div class="modal-content">
+        <h2>Configurar Recordatorio</h2>
+
+        <label>Mensaje</label>
+        <input type="text" id="recMensaje" placeholder="Escribe un mensaje">
+
+        <label>Fecha</label>
+        <input type="date" id="recFecha">
+
+        <label>Hora</label>
+        <input type="time" id="recHora">
+
+        <div class="modal-buttons">
+            <button id="btnGuardarRecordatorio" class="btn-guardar">Guardar</button>
+            <button class="btn-cerrar" onclick="cerrarModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
 
   </main>
 

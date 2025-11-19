@@ -36,10 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
         console.log("Respuesta del servidor:", data);
         if (data){
-          localStorage.setItem("usuarioFitalia", JSON.stringify(data))
-            // Opcional: Si tu API devuelve un estado de ánimo inicial, asegúrate que esté en 'data'
-            // Si no, puedes inicializarlo aparte si quieres:
-            // localStorage.setItem("estadoAnimo", "Neutro");
+          // 🔥 GUARDAMOS LOS DATOS IMPORTANTES
+          localStorage.setItem("userId", data.userId);
+          localStorage.setItem("userName", data.nombreUsuario);
+          localStorage.setItem("correo", data.correo);
+
+          // (Opcional) Guardar todo el usuario
+          localStorage.setItem("usuarioFitalia", JSON.stringify(data));
+
+          // 🔥 REDIRECCIONAMOS
           window.location.href = "/HTML/PrincipalRegistrado.html";
         }else{
           alert("No se pudo traer los datos del usuario")
