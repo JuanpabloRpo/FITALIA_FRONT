@@ -6,11 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const duracionTexto = document.querySelectorAll(".select-campo")[1].value;
         const intensidad = document.querySelectorAll(".select-campo")[2].value;
 
-        // Extraer solo el número (ej: "30 min" → 30)
         const duracion = parseInt(duracionTexto);
 
         const data = {
-            userId: 1, // Lo harás dinámico cuando tengas login
+            userId: 1,
             tipo: tipo,
             duracionMin: duracion,
             intensidad: intensidad
@@ -47,9 +46,54 @@ async function cargarHistorial() {
                 <td>${item.tipo}</td>
                 <td>${item.duracionMin} min</td>
                 <td>${item.intensidad}</td>
+                <td>${item.cumplido ? "✔️ Cumplido" : "⏳ Pendiente"}</td>
+                <td>
+                    <button onclick="marcarCumplido(${item.id})">✔</button>
+                    <button onclick="editarHabito(${item.id}, '${item.tipo}', ${item.duracionMin}, '${item.intensidad}')">✏</button>
+                    <button onclick="eliminarHabito(${item.id})">🗑</button>
+                </td>
             </tr>
         `;
     });
+}
+
+async function marcarCumplido(id) {
+    await fetch(`https://localhost:7064/api/SaludFisica/Cumplido/${id}`, {
+        method: "PUT"
+    });
+    cargarHistorial();
+}
+
+async function eliminarHabito(id) {
+    if (!confirm("¿Seguro que deseas eliminar este hábito?")) return;
+
+    await fetch(`https://localhost:7064/api/SaludFisica/Eliminar/${id}`, {
+        method: "DELETE"
+    });
+
+    cargarHistorial();
+}
+
+async function editarHabito(id, tipoActual, duracionActual, intensidadActual) {
+    const nuevoTipo = prompt("Nuevo tipo:", tipoActual);
+    const nuevaDuracion = parseInt(prompt("Nueva duración (min):", duracionActual));
+    const nuevaIntensidad = prompt("Nueva intensidad:", intensidadActual);
+
+    const data = {
+        id: id,
+        userId: 1,
+        tipo: nuevoTipo,
+        duracionMin: nuevaDuracion,
+        intensidad: nuevaIntensidad
+    };
+
+    await fetch(`https://localhost:7064/api/SaludFisica/Editar/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    cargarHistorial();
 }
 
 
