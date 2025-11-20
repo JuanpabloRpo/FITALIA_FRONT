@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITALIA - Salud Física</title>
+  <!-- Actualizada ruta del CSS para estructura de carpetas del proyecto -->
+  <link rel="stylesheet" href="/CSS/stylesFisica.css">
+  <link rel="stylesheet" href="/CSS/stylesBarraSuperior.css">
+  <link rel="icon" href="/ASSERTS/Home/ico.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="/JAVASCRIPT/BotonesBarraSuperiorScript.js" defer></script>
+  <script src="/JAVASCRIPT/SaludFisicaScript.js" defer></script>
+
+
+</head>
+<body>
+  <!-- ====== BARRA SUPERIOR ====== -->
+  <header class="Barra_Superior">
+
+    <div class="logo-menu">
+        <!-- HAMBURGUESA A LA IZQUIERDA -->
+        <div class="hamburger" id="hamburgerMenu">☰</div>
+
+        <!-- LOGO/TÍTULO -->
+        <h1 class="Fitalia_Bar">FITALIA</h1>
+
+        <!-- MENÚ DESPLEGABLE -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="GestionPerfil.html">Perfil</a>
+            <a href="Home.html" id="cerrarSesion">Cerrar sesión</a>
+        </div>
+    </div>
+
+    <!-- MENÚ DE BOTONES -->
+    <nav class="Menu">
+        <button id="btnSaludFisica" class="menu-btn principal-Fisica salud-fisica">Hábito Saludable</button>
+        <button id="btnSaludMental" class="menu-btn salud-mental">Salud Mental</button>
+        <button id="btnNutricional" class="menu-btn nutricional">Nutricional</button>
+        <button id="btnHome" class="menu-btn home">Home</button>
+    </nav>
+
+</header>
+
+  <!-- ====== CONTENIDO PRINCIPAL ====== -->
+  <main class="Contenido">
+
+    <!-- ====== SECCIÓN SALUD FÍSICA ====== -->
+    <section class="seccion-salud-fisica">
+      <div class="info-recomendaciones">
+        <div>
+            <h2 class="titulo-principal">HÁBITOS SALUDABLES</h2>
+        </div>
+        <div class="recomendaciones">
+          <h3>Recomendaciones de ejercicio</h3>
+          <ul class="lista-recomendaciones">
+            <li>- Caminar 30 min al día</li>
+            <li>- 10 min de estiramiento matutino</li>
+            <li>- Yoga para principiantes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="imagen-destacada">
+        <img src="/ASSERTS/SaludFisica/persona-saltando.png" alt="Persona haciendo ejercicio">
+      </div>
+    </section>
+
+  <!-- ====== SECCIÓN REGISTRO DE ACTIVIDAD ====== -->
+    <section class="seccion-registro">
+      <h2 class="titulo-registro">Registrar Hábito Saludable</h2>
+      
+      <div class="contenedor-registro-simple">
+        <div class="campos-horizontales">
+          <div class="campo-formulario">
+            <select class="select-campo">
+              <option>Tipo de Hábito</option>
+              <option>Caminata</option>
+              <option>Estiramiento</option>
+              <option>Yoga</option>
+              <option>Trotar</option>
+            </select>
+          </div>
+          
+          <div class="campo-formulario">
+            <select class="select-campo">
+              <option>Duración (min)</option>
+              <option>15 min</option>
+              <option>30 min</option>
+              <option>45 min</option>
+              <option>60 min</option>
+            </select>
+          </div>
+          
+          <div class="campo-formulario">
+            <select class="select-campo">
+              <option>Intensidad</option>
+              <option>Baja</option>
+              <option>Media</option>
+              <option>Alta</option>
+            </select>
+          </div>
+        </div>
+        
+        <button class="boton-guardar-centrado">Guardar Hábito</button>
+      </div>
+    </section>
+
+    <!-- ====== HISTORIAL DE HÁBITOS ====== -->
+    <section class="seccion-historial">
+      <h2 class="titulo-historial">Historial de Hábitos</h2>
+      <div class="contenedor-tabla">
+        <table class="tabla-historial">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Actividad</th>
+              <th>Duración</th>
+              <th>Intensidad</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+              <th>Recordatorio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>05/10/2025</td>
+              <td>Caminata</td>
+              <td>30 min</td>
+              <td>Baja</td>
+            </tr>
+            <tr>
+              <td>01/10/2025</td>
+              <td>Estiramiento</td>
+              <td>15 min</td>
+              <td>Media</td>
+            </tr>
+            <tr>
+              <td>25/09/2025</td>
+              <td>Trotar</td>
+              <td>45 min</td>
+              <td>Alta</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 🟦 MODAL PARA RECORDATORIOS -->
+<div id="modalRecordatorio" class="modal">
+    <div class="modal-content">
+        <h2>Configurar Recordatorio</h2>
+
+        <label>Mensaje</label>
+        <input type="text" id="recMensaje" placeholder="Escribe un mensaje">
+
+        <label>Fecha</label>
+        <input type="date" id="recFecha">
+
+        <label>Hora</label>
+        <input type="time" id="recHora">
+
+        <div class="modal-buttons">
+            <button id="btnGuardarRecordatorio" class="btn-guardar">Guardar</button>
+            <button class="btn-cerrar" onclick="cerrarModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+  </main>
+
+</body>
+</html>

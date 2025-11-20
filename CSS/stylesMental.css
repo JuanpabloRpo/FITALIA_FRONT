@@ -1,0 +1,249 @@
+/* ====== ESTILOS GENERALES ====== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter black', sans-serif;
+  background: linear-gradient(to top, #f091eb, transparent 20%),linear-gradient(to bottom, #f091eb, transparent 20%);
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* ====== CONTENIDO PRINCIPAL ====== */
+.Contenido {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* ====== INTRO CON VIDEO ====== */
+.intro-con-video {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.intro-texto {
+  flex: 1;
+  min-width: 320px;
+}
+
+.titulo {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.rutinas {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  width: 250px;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+/* ====== TARJETA ESPECIAL (con hora) ====== */
+.tarjeta.meditacion.especial {
+  background: #ffe7d1; /* durazno suave igual que las otras */
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta.meditacion.especial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+}
+
+.tarjeta h3 {
+  font-size: 1.4rem;
+  color: #0a0909;
+  margin: 0 0 8px;
+}
+
+.tarjeta.meditacion.especial p {
+  color: #5a4a3a;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+/* ====== HORA ====== */
+.tarjeta.meditacion.especial .hora {
+  margin-top: auto;
+  display: inline-block;
+  font-weight: 700;
+  color: #8b5e3b;
+  text-decoration: none;
+  background: #f7d6b3;
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.15);
+  transition: 0.2s ease;
+}
+
+.tarjeta.meditacion.especial .hora:hover {
+  background: #ffcca3;
+  transform: scale(1.05);
+}
+/* ====== ENLACE TIPO "VER AHORA" ====== */
+.enlace-meditacion {
+  font-weight: 700;
+  text-decoration: none;
+  color: #b37245; /* un naranja/marrón suave */
+  margin-top: 8px;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.enlace-meditacion:hover {
+  color: #8b5e3b;
+  transform: translateX(3px);
+}
+
+
+.hora
+.tarjeta p {
+  font-size: 15px;
+  color: #444;
+  margin: 8px 0;
+}
+
+.enlace {
+  color: #d81b60;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.tarjeta.rosa {
+  background: #fbe7f0;
+}
+
+.tarjeta.naranja {
+  background: #ffe4cc;
+}
+
+.hora {
+  display: block;
+  color: #e57300;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.btn-regresar {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 15px;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-regresar:hover {
+  color: #ff6f91; /* o el color principal que uses */
+  transform: translateX(-3px);
+}
+/* ====== VIDEO ====== */
+.video-yoga {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 16%;
+}
+
+.video-yoga video {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  object-fit: cover;
+}
+
+/* ====== TIPS ====== */
+.tips {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.tips h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contenedor-tips {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.tip {
+  text-align: center;
+}
+
+.tip img {
+  width: 230px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tip p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .intro-con-video {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-texto {
+    text-align: center;
+  }
+
+  .video-yoga {
+    margin-top: 30px;
+  }
+
+  .titulo {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITALIA</title>
+    <link rel="stylesheet" href="/CSS/stylesRegistrar.css">
+    <link rel="icon" href="/ASSERTS/Home/ico.png" type="image/png">
+    <script src="/JAVASCRIPT/RegistrarScript.js" defer></script>
+</head>
+<body>
+    <div class="Barra_Superior">
+        <div class="Fitalia_Ba">
+            <h2 class="Fitalia_Bar">FITALIA</h2>
+        </div>
+        <div class="Home_Ba">
+            <button id="btnHome-Registrar" class="Home_Bar">Home</button>
+        </div>
+    </div>
+
+    <div class="Contenedor_Formulario">
+        <form class="Formulario">
+            <div class="campo">
+                <label>Nombre</label>
+                <input type="text" name="nombre" id="InputNombre">
+            </div>
+            <div class="campo">
+                <label>Apellidos</label>
+                <input type="text" name="apellidos" id="InputApellidos">
+            </div>
+
+            <div class="campo">
+                <label>Correo Electrónico</label>
+                <input type="email" name="correo" id="InputCorreo">
+            </div>
+            <div class="campo">
+                <label>Fecha de cumpleaños</label>
+                <input type="date" name="fecha" id="InputCumpleaños">
+            </div>
+
+            <div class="campo">
+                <label>Password</label>
+                <input type="password" name="password" id="InputPassword">
+            </div>
+            <div class="campo">
+                <label>Confirm password</label>
+                <input type="password" name="confirm_password" id="InputConfirmPassword">
+            </div>
+
+            <div class="botones">
+                <button id="btnCrearCuenta-Registrar" type="button" class="btn azul">CREAR CUENTA</button>
+                <button id="btnIniciar-Registrar" type="button" class="btn blanco">INICIAR SESIÓN</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
